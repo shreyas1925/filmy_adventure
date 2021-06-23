@@ -22,7 +22,7 @@ const Header = () => {
   const userPhoto = useSelector(selectUserPhoto);
   const dispatch = useDispatch();
   const history = useHistory();
-  const [burgerStatus, setBurgerStatus] = useState(false);
+  const [burgerStatus, setBurgerStatus] = useState(true);
 
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
@@ -62,7 +62,7 @@ const Header = () => {
 
   return (
     <Nav>
-      <CustomMenu onClick={() => setBurgerStatus(true)}>
+      <CustomMenu onClick={() => setBurgerStatus(false)}>
         <MenuIcon />
       </CustomMenu>
       <Link to="/">
@@ -104,7 +104,7 @@ const Header = () => {
           </NavMenu>
 
           <BurgerNav show={burgerStatus}>
-            <CustomClose onClick={() => setBurgerStatus(false)}>
+            <CustomClose onClick={() => setBurgerStatus(true)}>
               <CloseIcon />
             </CustomClose>
 
@@ -266,13 +266,14 @@ const BurgerNav = styled.div`
   justify-content: space-between;
   background-color: black;
   transition: 0.3s ease-in all;
-  transform: ${(props) => (props.show ? "translateX(0)" : "translateX(100%)")};
+  transform: ${(props) =>
+    props.show ? "translateX(-100%)" : "translateX(0%)"};
 
   a {
     display: flex;
-    margin-top: 20px;
+    // margin-top: 20px;
     margin-left: 23px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     align-items: center;
     padding: 0 12px;
     color: white;
@@ -314,5 +315,5 @@ const BurgerNav = styled.div`
 const CustomClose = styled.div`
   margin-left: 130px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 30px;
 `;

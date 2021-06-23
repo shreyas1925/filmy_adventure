@@ -14,7 +14,6 @@ const Movies = () => {
     <Container>
       <h4>Recommended for You</h4>
       <Content>
-        <Fade></Fade>
         {movies &&
           movies.map((movie) => (
             <Wrap key={movie.id}>
