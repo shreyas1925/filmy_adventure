@@ -6,7 +6,6 @@ import db from "../firebase";
 const Detail = () => {
   const { id } = useParams();
   console.log(id);
-
   const [movie, setMovie] = useState("");
 
   useEffect(() => {
