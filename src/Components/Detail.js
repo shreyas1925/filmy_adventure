@@ -7,7 +7,6 @@ const Detail = () => {
   const { id } = useParams();
   console.log(id);
   const [movie, setMovie] = useState("");
-
   useEffect(() => {
     db.collection("movies")
       .doc(id)
